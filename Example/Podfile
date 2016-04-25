@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'Segment-Taplytics_Example', :exclusive => true do
+  pod 'Segment-Taplytics', :path => '../'
+end
+
+target 'Segment-Taplytics_Tests', :exclusive => true do
+  pod 'Segment-Taplytics', :path => '../'
+
+  pod 'Specta'
+  pod 'Expecta'
+end
