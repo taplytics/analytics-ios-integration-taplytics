@@ -4,5 +4,8 @@
 
   @import Specta;
   @import Expecta;
+  @import Analytics;
+  @import Taplytics;
+  @import OCMockito;
 
 #endif

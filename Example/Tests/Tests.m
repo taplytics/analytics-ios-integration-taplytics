@@ -8,7 +8,20 @@
 
 // https://github.com/Specta/Specta
 
+#import "SEGPayloadBuilder.h"
+
 SpecBegin(InitialSpecs)
+
+describe(@"Taplytics Integration", ^{
+    __block SEGTaplyticsIntegration *integration;
+    __block Taplytics *taplytics;
+    
+    beforeEach(^{
+        taplytics = mock([Taplytics class]);
+        
+        integration = [[SEGTaplyticsIntegration alloc] initWithSettings:@{} andTaplytics:taplytics];
+    });
+});
 
 describe(@"these will fail", ^{
 
