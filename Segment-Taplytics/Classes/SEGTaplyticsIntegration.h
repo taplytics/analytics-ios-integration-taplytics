@@ -18,4 +18,6 @@
 
 - (instancetype)initWithSettings:(NSDictionary *)settings;
 
+- (instancetype)initWithSettings:(NSDictionary *)settings andTaplytics:(Taplytics *)taplytics;
+
 @end

@@ -2,11 +2,11 @@
 
 #ifdef __OBJC__
 
-  @import Specta;
-  @import Expecta;
-  @import Analytics;
-  @import Taplytics;
-  @import OCMockito;
+  #import <Specta/Specta.h>
+  #import <Expecta/Expecta.h>
+  #import <Analytics/SEGAnalytics.h>
+  #import <Taplytics/Taplytics.h>
+  #import <OCMockito/OCMockito.h>
   #import <Segment-Taplytics/SEGTaplyticsIntegration.h>
 
 #endif
