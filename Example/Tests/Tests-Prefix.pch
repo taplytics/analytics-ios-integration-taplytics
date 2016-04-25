@@ -7,5 +7,6 @@
   @import Analytics;
   @import Taplytics;
   @import OCMockito;
+  #import <Segment-Taplytics/SEGTaplyticsIntegration.h>
 
 #endif
