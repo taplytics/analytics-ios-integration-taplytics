@@ -8,6 +8,7 @@
 
 #import "SEGTaplyticsIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
+#import <Taplytics/Taplytics.h>
 
 
 @implementation SEGTaplyticsIntegration
