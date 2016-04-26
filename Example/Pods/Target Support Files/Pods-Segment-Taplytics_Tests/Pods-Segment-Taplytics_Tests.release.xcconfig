@@ -1,8 +1,6 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Taplytics"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Taplytics" "$(PLATFORM_DIR)/Developer/Library/Frameworks"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Segment-Taplytics" "${PODS_ROOT}/Headers/Public/Taplytics"
-LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Analytics.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Expecta.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Specta.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Segment-Taplytics" -isystem "${PODS_ROOT}/Headers/Public/Taplytics"
-OTHER_LDFLAGS = $(inherited) -ObjC -framework "Analytics" -framework "CoreTelephony" -framework "Expecta" -framework "JavaScriptCore" -framework "Specta" -framework "SystemConfiguration" -framework "Taplytics"
-PODS_FRAMEWORK_BUILD_PATH = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Pods-Segment-Taplytics_Tests
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Analytics" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/OCHamcrest" "${PODS_ROOT}/Headers/Public/OCMockito" "${PODS_ROOT}/Headers/Public/Segment-Taplytics" "${PODS_ROOT}/Headers/Public/Specta" "${PODS_ROOT}/Headers/Public/Taplytics"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Analytics" -isystem "${PODS_ROOT}/Headers/Public/Expecta" -isystem "${PODS_ROOT}/Headers/Public/OCHamcrest" -isystem "${PODS_ROOT}/Headers/Public/OCMockito" -isystem "${PODS_ROOT}/Headers/Public/Segment-Taplytics" -isystem "${PODS_ROOT}/Headers/Public/Specta" -isystem "${PODS_ROOT}/Headers/Public/Taplytics"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Analytics" -l"Expecta" -l"OCHamcrest" -l"OCMockito" -l"Specta" -framework "CoreTelephony" -framework "Foundation" -framework "JavaScriptCore" -framework "SystemConfiguration" -framework "Taplytics" -framework "XCTest"
 PODS_ROOT = ${SRCROOT}/Pods
