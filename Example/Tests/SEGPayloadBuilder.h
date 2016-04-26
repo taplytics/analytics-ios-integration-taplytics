@@ -6,9 +6,8 @@
 //  Copyright © 2016 wcjohnson11. All rights reserved.
 //
 
-@import Foundation;
-@import Analytics;
-
+#import <Foundation/Foundation.h>
+#import <Analytics/SEGAnalytics.h>
 
 @interface SEGPayloadBuilder : NSObject
 

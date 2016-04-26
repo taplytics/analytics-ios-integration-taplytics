@@ -24,6 +24,15 @@
     return self;
 }
 
+- (instancetype)initWithSettings:(NSDictionary *)settings andTaplytics:(Taplytics *)taplytics
+{
+    if (self = [super init]) {
+        self.settings = settings;
+        self.taplytics = taplytics;
+    }
+    return self;
+}
+
 + (NSNumber *)extractValue:(NSDictionary *)dictionary withKey:(NSString *)valueKey
 {
     id valueProperty = nil;
@@ -87,9 +96,9 @@
             SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
         }
         if (!value && !revenue) {
-            [Taplytics logEvent:payload.event value: nil
+            [Taplytics logEvent:payload.event value:nil
                           metaData:payload.properties];
-            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value: nil metaData:%@]", payload.event, payload.properties);
+            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:nil metaData:%@]", payload.event, payload.properties);
         }
     }];
 }
