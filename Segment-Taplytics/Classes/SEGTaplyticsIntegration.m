@@ -9,6 +9,8 @@
 #import "SEGTaplyticsIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
 
+#import <Taplytics/Taplytics.h>
+
 
 @implementation SEGTaplyticsIntegration
 
@@ -17,7 +19,7 @@
     if (self = [super init]) {
         self.settings = settings;
         NSString *apiKey = [settings objectForKey:@"apiKey"];
-        self.taplytics = [Taplytics startTaplyticsAPIKey:apiKey];
+        [Taplytics startTaplyticsAPIKey:apiKey];
     }
     return self;
 }
@@ -39,7 +41,7 @@
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
             return [formatter numberFromString:valueProperty];
-        } else if ([revenueProperty isKindOfClass:[NSNumber class]]) {
+        } else if ([valueProperty isKindOfClass:[NSNumber class]]) {
             return valueProperty;
         }
     }
@@ -74,20 +76,20 @@
 {
     [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
         // Revenue & value tracking
-        NSString *value = [SEGTaplyticsIntegration extractValue:payload.properties withKey:@"value"];
+        NSNumber *value = [SEGTaplyticsIntegration extractValue:payload.properties withKey:@"value"];
         NSNumber *revenue = [SEGTaplyticsIntegration extractRevenue:payload.properties withKey:@"revenue"];
         if (value) {
-            [Taplytics logEvent: payload.event value: [value doubleValue] metaData: payload.properties];
-            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, payload.value, payload.properties);
+            [Taplytics logEvent: payload.event value: value metaData: payload.properties];
+            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, payload.properties);
         }
         if (revenue) {
-            [Taplytics logRevenue: payload.event revenue: [revenue doubleValue] metaData: payload.properties];
+            [Taplytics logRevenue: payload.event revenue: revenue metaData: payload.properties];
             SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
         }
         if (!value && !revenue) {
-            [Taplytics logEvent:payload.event
-                          parameters:payload.properties];
-            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ parameters:%@]", payload.event, payload.properties);
+            [Taplytics logEvent:payload.event value: nil
+                          metaData:payload.properties];
+            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value: nil metaData:%@]", payload.event, payload.properties);
         }
     }];
 }
@@ -96,6 +98,9 @@
 {
     [self flush];
     
-    [Taplytics resetUser];
-    SEGLog(@"[[Taplytics sharedInstance] resetUser]");
+    [Taplytics resetUser:^{
+      SEGLog(@"Taplytics resetUser");
+    }];
 }
+
+@end
