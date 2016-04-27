@@ -416,19 +416,6 @@
 			<key>isa</key>
 			<string>XCConfigurationList</string>
 		</dict>
-		<key>071CD8439CB96EFA9814A13FC6BC78D4</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SEGTaplyticsIntegrationFactory.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>07282695806D1DFBF187BFA004D80641</key>
 		<dict>
 			<key>fileRef</key>
@@ -592,15 +579,16 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>0AB212324D3432E4A407EC986AEE6B0F</key>
+		<key>0B766ADBD0FAC3CF9185461DB087A451</key>
 		<dict>
 			<key>buildActionMask</key>
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>FBB011700AC236A6905CF57AD0FFD9A5</string>
-				<string>F1B5CA6D5BB39AAA42E052E94EB9A1C8</string>
-				<string>BDAD404FF8F62B58EB8428BF0FA53843</string>
+				<string>BCDF5840AE2C39BD8D34B3031F89F33E</string>
+				<string>698A26A99F915C57EE4F86FC28DAF52F</string>
+				<string>3135899F71AF43DFDC052B3D2D7C186A</string>
+				<string>D0389D97F050F0D1A0759A0522CBC96D</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -1159,19 +1147,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>14D58ECCD32E4579BC5A77E9BEC469CD</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SEGTaplyticsIntegration.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>15163EE2FFDFE0D7F31598ED92F2E0EE</key>
 		<dict>
 			<key>fileRef</key>
@@ -1207,19 +1182,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>15883DA84FFAC32E77267810114B8404</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>SEGTaplyticsIntegration.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
 		</dict>
 		<key>15DCDB579EC4F7A1CF9E5ABCF7D3B4C5</key>
 		<dict>
@@ -1532,6 +1494,21 @@
 			<string>EA0A9AB7ED646375B9A157E0FCB2435A</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>1B727C064A08029FBBD0FCECF2830F71</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>6AD0972A3106C545494DB1983A2D4CDD</string>
+				<string>5F408766B6FE85B940474633176F01CB</string>
+				<string>B117A1C78CA656D2333B947ABCCF1DAB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXHeadersBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
 		</dict>
 		<key>1BA1144CE31275BF367A018C99D96865</key>
 		<dict>
@@ -2707,6 +2684,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>3135899F71AF43DFDC052B3D2D7C186A</key>
+		<dict>
+			<key>fileRef</key>
+			<string>ACEEE8EFAFB05A5E70CE0C0B197CE7F8</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>32BA50A9DB25BAA2CCA3D98F27389367</key>
 		<dict>
 			<key>containerPortal</key>
@@ -2778,6 +2762,19 @@
 			<string>libExpecta.a</string>
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>33EBC92D20D1567D910D8E4061F8C652</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SEGTaplyticsWrapper.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>341D7536159B52F41598F730CC45D548</key>
 		<dict>
@@ -4249,21 +4246,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>4AF57D508599C98EC1A2CC66116A9747</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>A7FAF5D5943BAC0EF7E8EFCF73A4F215</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Segment-Taplytics</string>
-			<key>path</key>
-			<string>Segment-Taplytics</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>4B1DD88244C08F219E19E5A375A60281</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -4506,6 +4488,19 @@
 			<string>1EA598AAE8D4EC870BAEC9CD9F741497</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>4F583F343C40BBDF11934A38B3C9E4F6</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SEGTaplyticsIntegration.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>4F96A8546EE82D063D0AD2E1DB9590E9</key>
 		<dict>
@@ -5165,20 +5160,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>5CD40BE20CD532A6232874BCAE6E68D7</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>F1BD125C2E3A5025D6D811F31ECE7498</string>
-				<string>92CB1E65C19D6EF0D9E17A6464D56BBC</string>
-			</array>
-			<key>isa</key>
-			<string>PBXHeadersBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
 		<key>5D60CEB8525CC0E3B83A48A01A2591CB</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5271,6 +5252,20 @@
 			<string>0665370C9FF548AE4AF8A84B2813468E</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>5F408766B6FE85B940474633176F01CB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>6BBE55911BD24AEFBE15859A88AC5CD0</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>5F6D96E64F890BDC4A75B73C3D50A0DD</key>
 		<dict>
@@ -5845,6 +5840,13 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>698A26A99F915C57EE4F86FC28DAF52F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>9613812E8613C48E5ADAFA6ADD057E2A</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>69D35D9D3D792E6595833EA9BACED786</key>
 		<dict>
 			<key>baseConfigurationReference</key>
@@ -5926,6 +5928,20 @@
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>
+		<key>6AD0972A3106C545494DB1983A2D4CDD</key>
+		<dict>
+			<key>fileRef</key>
+			<string>4F583F343C40BBDF11934A38B3C9E4F6</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
+		</dict>
 		<key>6B4025DC67A60F43C887079C3980A51D</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -5978,6 +5994,19 @@
 			<string>Specta</string>
 			<key>path</key>
 			<string>Specta</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>6BBE55911BD24AEFBE15859A88AC5CD0</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SEGTaplyticsIntegrationFactory.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -6972,6 +7001,19 @@
 			<string>HCUnsignedCharReturnGetter.m</string>
 			<key>path</key>
 			<string>Source/Core/Helpers/ReturnValueGetters/HCUnsignedCharReturnGetter.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7AE01C6732A0ED6593BCE6C84FC1E0A9</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SEGTaplyticsWrapper.h</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
@@ -8429,20 +8471,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>92CB1E65C19D6EF0D9E17A6464D56BBC</key>
-		<dict>
-			<key>fileRef</key>
-			<string>071CD8439CB96EFA9814A13FC6BC78D4</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>92D7942DC0EF5100174D6E783E998946</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -8636,6 +8664,19 @@
 					<string>Public</string>
 				</array>
 			</dict>
+		</dict>
+		<key>9613812E8613C48E5ADAFA6ADD057E2A</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SEGTaplyticsIntegration.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>974D5AA31657D015FFAD8C59F94BD804</key>
 		<dict>
@@ -9716,24 +9757,6 @@
 				</array>
 			</dict>
 		</dict>
-		<key>A7FAF5D5943BAC0EF7E8EFCF73A4F215</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>15883DA84FFAC32E77267810114B8404</string>
-				<string>14D58ECCD32E4579BC5A77E9BEC469CD</string>
-				<string>071CD8439CB96EFA9814A13FC6BC78D4</string>
-				<string>AFF58246D99B9CE8D94C77E5B22D45AA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Classes</string>
-			<key>path</key>
-			<string>Classes</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>A80FAED6EEE5337B875559380E6BECB3</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -10011,6 +10034,19 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>ACEEE8EFAFB05A5E70CE0C0B197CE7F8</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SEGTaplyticsIntegrationFactory.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>AD6791D14732A3C17164F61CC72FFB0D</key>
 		<dict>
 			<key>fileRef</key>
@@ -10139,19 +10175,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>AFF58246D99B9CE8D94C77E5B22D45AA</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>SEGTaplyticsIntegrationFactory.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>B09E165FB96935B6839C4337A97E61DA</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -10180,6 +10203,20 @@
 			<string>E351727CD07BB90B2A3CAE2C2433F6C5</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>B117A1C78CA656D2333B947ABCCF1DAB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>7AE01C6732A0ED6593BCE6C84FC1E0A9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+			<key>settings</key>
+			<dict>
+				<key>ATTRIBUTES</key>
+				<array>
+					<string>Public</string>
+				</array>
+			</dict>
 		</dict>
 		<key>B1F36AF20C7445BFDA3B135B9B82C24F</key>
 		<dict>
@@ -10750,6 +10787,13 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
+		<key>BCDF5840AE2C39BD8D34B3031F89F33E</key>
+		<dict>
+			<key>fileRef</key>
+			<string>F56C822A4F5F0A23F64BB3543AC3EC1B</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>BD181E3E85A56DCEB20B70D6E1304220</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -10790,13 +10834,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>BDAD404FF8F62B58EB8428BF0FA53843</key>
-		<dict>
-			<key>fileRef</key>
-			<string>AFF58246D99B9CE8D94C77E5B22D45AA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>BE37B1CF00206F60BB1FC882210A9760</key>
 		<dict>
@@ -11064,6 +11101,26 @@
 			<string>B5AA5D33259C25BADF8E8A15E00FC95E</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
+		</dict>
+		<key>C3661B477BB4560D509F88F91691F015</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>4F583F343C40BBDF11934A38B3C9E4F6</string>
+				<string>9613812E8613C48E5ADAFA6ADD057E2A</string>
+				<string>6BBE55911BD24AEFBE15859A88AC5CD0</string>
+				<string>ACEEE8EFAFB05A5E70CE0C0B197CE7F8</string>
+				<string>7AE01C6732A0ED6593BCE6C84FC1E0A9</string>
+				<string>33EBC92D20D1567D910D8E4061F8C652</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Classes</string>
+			<key>path</key>
+			<string>Classes</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
 		</dict>
 		<key>C3A1CEAC7AA87C47F108C7A57B5046A3</key>
 		<dict>
@@ -11760,6 +11817,13 @@
 				<string>-fno-objc-arc</string>
 			</dict>
 		</dict>
+		<key>D0389D97F050F0D1A0759A0522CBC96D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>33EBC92D20D1567D910D8E4061F8C652</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
 		<key>D0A4901B21C743E5E59A0EC508433D0E</key>
 		<dict>
 			<key>fileRef</key>
@@ -12440,6 +12504,21 @@
 			<key>runOnlyForDeploymentPostprocessing</key>
 			<string>0</string>
 		</dict>
+		<key>D9ECE61FD8E0A8ED6A377C8E88158BCE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>C3661B477BB4560D509F88F91691F015</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Segment-Taplytics</string>
+			<key>path</key>
+			<string>Segment-Taplytics</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
 		<key>DA07684D7443434333ED89F8460358A5</key>
 		<dict>
 			<key>includeInIndex</key>
@@ -12802,9 +12881,9 @@
 			<string>D72F24ABC7114E823E467427DA8DFF9E</string>
 			<key>buildPhases</key>
 			<array>
-				<string>0AB212324D3432E4A407EC986AEE6B0F</string>
+				<string>0B766ADBD0FAC3CF9185461DB087A451</string>
 				<string>DB38FE8E3432B892F6D12596F7815141</string>
-				<string>5CD40BE20CD532A6232874BCAE6E68D7</string>
+				<string>1B727C064A08029FBBD0FCECF2830F71</string>
 			</array>
 			<key>buildRules</key>
 			<array/>
@@ -12952,7 +13031,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>4AF57D508599C98EC1A2CC66116A9747</string>
+				<string>D9ECE61FD8E0A8ED6A377C8E88158BCE</string>
 				<string>F8706E412BF42E36035C28E1E554D6E2</string>
 			</array>
 			<key>isa</key>
@@ -14047,27 +14126,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>F1B5CA6D5BB39AAA42E052E94EB9A1C8</key>
-		<dict>
-			<key>fileRef</key>
-			<string>14D58ECCD32E4579BC5A77E9BEC469CD</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>F1BD125C2E3A5025D6D811F31ECE7498</key>
-		<dict>
-			<key>fileRef</key>
-			<string>15883DA84FFAC32E77267810114B8404</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-			<key>settings</key>
-			<dict>
-				<key>ATTRIBUTES</key>
-				<array>
-					<string>Public</string>
-				</array>
-			</dict>
-		</dict>
 		<key>F1C6756048FC34DC0551928E0DD827F1</key>
 		<dict>
 			<key>fileRef</key>
@@ -14610,13 +14668,6 @@
 					<string>Public</string>
 				</array>
 			</dict>
-		</dict>
-		<key>FBB011700AC236A6905CF57AD0FFD9A5</key>
-		<dict>
-			<key>fileRef</key>
-			<string>F56C822A4F5F0A23F64BB3543AC3EC1B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>FBC840151480EC28F429C4A28DCBD46B</key>
 		<dict>

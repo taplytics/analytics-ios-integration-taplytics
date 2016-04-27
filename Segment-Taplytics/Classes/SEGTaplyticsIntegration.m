@@ -9,8 +9,6 @@
 #import "SEGTaplyticsIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
 
-#import <Taplytics/Taplytics.h>
-
 
 @implementation SEGTaplyticsIntegration
 
@@ -19,7 +17,7 @@
     if (self = [super init]) {
         self.settings = settings;
         NSString *apiKey = [settings objectForKey:@"apiKey"];
-        [Taplytics startTaplyticsAPIKey:apiKey];
+        [Taplytics startTaplyticsAPIKey:apiKey options:setttings];
     }
     return self;
 }

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <Analytics/SEGIntegration.h>
 #import <Taplytics/Taplytics.h>
+#import <SEGTaplyticsWrapper.h>
 
 
 @interface SEGTaplyticsIntegration : NSObject <SEGIntegration>

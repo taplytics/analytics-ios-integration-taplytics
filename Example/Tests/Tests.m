@@ -10,31 +10,24 @@
 
 #import "SEGPayloadBuilder.h"
 
-@interface SEGTaplyticsIntegrationTests : XCTestCase
-
-@property SEGTaplyticsIntegration *integration;
-@property Class taplyticsClassMock;
-
-@end
-
 SpecBegin(InitialSpecs)
 
 describe(@"Taplytics Integration", ^{
-    __block SEGTaplyticsIntegration *integration;
-    __block Class taplyticsClassMock;
+    _integration = [[SEGTaplyticsIntegration alloc] init];
+    _taplyticsClassMock = mockClass([Taplytics class]);
 
-    beforeEach(^{
-      taplyticsClassMock = mockClass([Taplytics class]);
+    // beforeEach(^{
+    //   _taplyticsClassMock = mockClass([Taplytics class]);
 
-      integration = [[SEGTaplyticsIntegration alloc] init];
+    //   integration = [[SEGTaplyticsIntegration alloc] init];
 
-    });
+    // });
 
-    it(@"track", ^{
-        [integration track:[SEGPayloadBuilder track:@"App Opened"]];
+    // it(@"track", ^{
+    //     [integration track:[SEGPayloadBuilder track:@"App Opened"]];
 
-        [verify(taplyticsClassMock) logEvent:@"App Opened" value:nil metadata:@{}];
-    });
+    //     [verify(taplyticsClassMock) logEvent:@"App Opened" value:nil metadata:@{}];
+    // });
 });
 
 describe(@"these will fail", ^{

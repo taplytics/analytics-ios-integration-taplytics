@@ -8,6 +8,7 @@
 
 #import "SEGTaplyticsIntegrationFactory.h"
 #import "SEGTaplyticsIntegration.h"
+#import <Taplytics/Taplytics.h>
 
 @implementation SEGTaplyticsIntegrationFactory
 

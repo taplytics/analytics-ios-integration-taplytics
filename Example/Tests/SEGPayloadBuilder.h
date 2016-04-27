@@ -15,12 +15,8 @@
 
 + (SEGTrackPayload *)track:(NSString *)event withProperties:(NSDictionary *)properties;
 
-+ (SEGScreenPayload *)screen:(NSString *)name;
-
 + (SEGIdentifyPayload *)identify:(NSString *)userId;
 
 + (SEGIdentifyPayload *)identify:(NSString *)userId withTraits:(NSDictionary *)traits;
-
-+ (SEGAliasPayload *)alias:(NSString *)newId;
 
 @end

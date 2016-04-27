@@ -8,5 +8,6 @@
   #import <Analytics/SEGAnalytics.h>
   #import <Taplytics/Taplytics.h>
   #import <Segment-Taplytics/SEGTaplyticsIntegration.h>
+  #import <Segment-Taplytics/SEGTaplyticsWrapper.h>
 
 #endif
