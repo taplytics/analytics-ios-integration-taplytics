@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '030AEFB3A3FE07E7A20B9C49'
+               BlueprintIdentifier = 'A86184A673209A6970A6B143'
                BlueprintName = 'Segment-Taplytics'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libSegment-Taplytics.a'>

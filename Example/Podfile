@@ -6,6 +6,7 @@ end
 target 'Segment-Taplytics_Tests', :exclusive => true do
   pod 'Segment-Taplytics', :path => '../'
 
+  pod 'OCMockito'
   pod 'Specta'
   pod 'Expecta'
 end

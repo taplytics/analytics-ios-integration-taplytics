@@ -14,10 +14,10 @@
 @interface SEGTaplyticsIntegration : NSObject <SEGIntegration>
 
 @property (nonatomic, strong) NSDictionary *settings;
-@property (nonatomic, strong) Taplytics *taplytics;
+@property (nonatomic, strong) Class taplyticsClass;
 
 - (instancetype)initWithSettings:(NSDictionary *)settings;
 
-- (instancetype)initWithSettings:(NSDictionary *)settings andTaplytics:(Taplytics *)taplytics;
+- (instancetype)initWithSettings:(NSDictionary *)settings andTaplytics:(id)taplyticsClass;
 
 @end

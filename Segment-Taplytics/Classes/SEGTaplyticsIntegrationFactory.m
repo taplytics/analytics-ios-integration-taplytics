@@ -11,17 +11,17 @@
 
 @implementation SEGTaplyticsIntegrationFactory
 
-+ (id)instance
++ (instancetype)instance
 {
     static dispatch_once_t once;
-    static SEGTaplyticsIntegration *sharedInstance;
+    static SEGTaplyticsIntegrationFactory *sharedInstance;
     dispatch_once(&once, ^{
         sharedInstance = [[self alloc] init];
     });
     return sharedInstance;
 }
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     return self;

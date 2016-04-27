@@ -10,37 +10,38 @@
 
 SpecBegin(InitialSpecs)
 
-describe(@"these will fail", ^{
-
-    it(@"can do maths", ^{
-        expect(1).to.equal(2);
-    });
-
-    it(@"can read", ^{
-        expect(@"number").to.equal(@"string");
-    });
-    
-    it(@"will wait for 10 seconds and fail", ^{
-        waitUntil(^(DoneCallback done) {
+describe(@"SEGTaplyticsIntegrationFactory", ^{
+    it(@"factory creates integration with empty settings", ^{
+        SEGTaplyticsIntegration *integration = [[SEGTaplyticsIntegrationFactory instance] createWithSettings:@{
+        } forAnalytics:nil];
         
-        });
+        expect(integration.settings).to.equal(@{});
     });
 });
 
-describe(@"these will pass", ^{
+describe(@"SEGTaplyticsIntegrationFactory", ^{
+    it(@"factory creates integration with basic settings", ^{
+        SEGTaplyticsIntegration *integration = [[SEGTaplyticsIntegrationFactory instance] createWithSettings:@{
+            @"apiKey" : @"foo"
+        } forAnalytics:nil];
+        
+        expect(integration.settings).to.equal(@{ @"apiKey" : @"foo" });
+    });
+});
+
+describe(@"SEGTaplyticsIntegration", ^{
+    __block Class mockTaplytics;
+    __block SEGTaplyticsIntegration *integration;
     
-    it(@"can do maths", ^{
-        expect(1).beLessThan(23);
+    beforeEach(^{
+        mockTaplytics = mockClass([Taplytics class]);
+        integration = [[SEGTaplyticsIntegration alloc] initWithSettings:@{} andTaplytics:mockTaplytics];
     });
     
-    it(@"can read", ^{
-        expect(@"team").toNot.contain(@"I");
-    });
-    
-    it(@"will wait and succeed", ^{
-        waitUntil(^(DoneCallback done) {
-            done();
-        });
+    it(@"reset", ^{
+        [integration reset];
+        
+        [verify(mockTaplytics) resetUser:nil];
     });
 });
 

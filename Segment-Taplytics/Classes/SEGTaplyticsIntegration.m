@@ -9,9 +9,6 @@
 #import "SEGTaplyticsIntegration.h"
 #import <Analytics/SEGAnalyticsUtils.h>
 
-#import <Taplytics/Taplytics.h>
-
-
 @implementation SEGTaplyticsIntegration
 
 - (instancetype)initWithSettings:(NSDictionary *)settings
@@ -19,7 +16,16 @@
     if (self = [super init]) {
         self.settings = settings;
         NSString *apiKey = [settings objectForKey:@"apiKey"];
-        [Taplytics startTaplyticsAPIKey:apiKey];
+        self.taplyticsClass = [Taplytics class];
+    }
+    return self;
+}
+
+- (instancetype)initWithSettings:(NSDictionary *)settings andTaplytics:(Class)taplyticsClass
+{
+    if (self = [super init]) {
+        self.settings = settings;
+        self.taplyticsClass = taplyticsClass;
     }
     return self;
 }
@@ -74,33 +80,28 @@
 
 - (void)track:(SEGTrackPayload *)payload
 {
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-        // Revenue & value tracking
-        NSNumber *value = [SEGTaplyticsIntegration extractValue:payload.properties withKey:@"value"];
-        NSNumber *revenue = [SEGTaplyticsIntegration extractRevenue:payload.properties withKey:@"revenue"];
-        if (value) {
-            [Taplytics logEvent: payload.event value: value metaData: payload.properties];
-            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, payload.properties);
-        }
-        if (revenue) {
-            [Taplytics logRevenue: payload.event revenue: revenue metaData: payload.properties];
-            SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
-        }
-        if (!value && !revenue) {
-            [Taplytics logEvent:payload.event value: nil
-                          metaData:payload.properties];
-            SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value: nil metaData:%@]", payload.event, payload.properties);
-        }
-    }];
+    NSNumber *revenue = [SEGTaplyticsIntegration extractRevenue:payload.properties withKey:@"revenue"];
+    if (revenue) {
+        [self.taplyticsClass logRevenue: payload.event revenue: revenue metaData: payload.properties];
+        SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
+        return;
+    }
+
+    NSNumber *value = [SEGTaplyticsIntegration extractValue:payload.properties withKey:@"value"];
+    if (value) {
+       [self.taplyticsClass logEvent: payload.event value: value metaData: payload.properties];
+       SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, payload.properties);
+        return;
+    }
+    
+    [self.taplyticsClass logEvent:payload.event value:nil metaData:payload.properties];
+    SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value: nil metaData:%@]", payload.event, payload.properties);
 }
 
 - (void)reset
 {
-    [self flush];
-    
-    [Taplytics resetUser:^{
-      SEGLog(@"Taplytics resetUser");
-    }];
+    SEGLog(@"Taplytics resetUser");
+    [self.taplyticsClass resetUser:nil];
 }
 
 @end
