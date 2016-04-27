@@ -20,10 +20,15 @@ describe(@"Taplytics Integration", ^{
         taplytics = mock([Taplytics class]);
 
         integration = [[SEGTaplyticsIntegration alloc] initWithSettings:@{
-
+            @"apiKey": @"foo"
         } andTaplytics:taplytics];
     });
-    
+
+    it(@"track", ^{
+        [integration track:[SEGPayloadBuilder track:@"App Opened"]];
+
+        [verify(taplytics) logEvent:@"App Opened" value:nil metadata:@{}];
+    });
 });
 
 describe(@"these will fail", ^{
