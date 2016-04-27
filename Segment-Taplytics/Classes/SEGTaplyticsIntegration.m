@@ -96,8 +96,7 @@
             SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
         }
         if (!value && !revenue) {
-            [Taplytics logEvent:payload.event value:nil
-                          metaData:payload.properties];
+            [Taplytics logEvent:payload.event value:nil metaData:payload.properties];
             SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:nil metaData:%@]", payload.event, payload.properties);
         }
     }];

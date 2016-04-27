@@ -7,27 +7,33 @@
 //
 
 // https://github.com/Specta/Specta
-//
+
 #import "SEGPayloadBuilder.h"
+
+@interface SEGTaplyticsIntegrationTests : XCTestCase
+
+@property SEGTaplyticsIntegration *integration;
+@property Class taplyticsClassMock;
+
+@end
 
 SpecBegin(InitialSpecs)
 
 describe(@"Taplytics Integration", ^{
     __block SEGTaplyticsIntegration *integration;
-    __block Taplytics *taplytics;
+    __block Class taplyticsClassMock;
 
     beforeEach(^{
-        taplytics = mock([Taplytics class]);
+      taplyticsClassMock = mockClass([Taplytics class]);
 
-        integration = [[SEGTaplyticsIntegration alloc] initWithSettings:@{
-            @"apiKey": @"foo"
-        } andTaplytics:taplytics];
+      integration = [[SEGTaplyticsIntegration alloc] init];
+
     });
 
     it(@"track", ^{
         [integration track:[SEGPayloadBuilder track:@"App Opened"]];
 
-        [verify(taplytics) logEvent:@"App Opened" value:nil metadata:@{}];
+        [verify(taplyticsClassMock) logEvent:@"App Opened" value:nil metadata:@{}];
     });
 });
 
