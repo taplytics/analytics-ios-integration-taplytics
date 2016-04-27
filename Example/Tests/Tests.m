@@ -38,6 +38,22 @@ describe(@"SEGTaplyticsIntegration", ^{
         integration = [[SEGTaplyticsIntegration alloc] initWithSettings:@{} andTaplytics:mockTaplytics];
     });
     
+    it(@"track with no props", ^{
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Foo" properties:@{} context:@{} integrations:@{}];
+        
+        [integration track:payload];
+        
+        [verify(mockTaplytics) logEvent:@"Foo" value:nil metaData:@{}];
+    });
+    
+    it(@"track with revenue", ^{
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Foo" properties:@{@"revenue": @200} context:@{} integrations:@{}];
+        
+        [integration track:payload];
+        
+        [verify(mockTaplytics) logRevenue:@"Foo" revenue:@200 metaData:@{}];
+    });
+    
     it(@"reset", ^{
         [integration reset];
         

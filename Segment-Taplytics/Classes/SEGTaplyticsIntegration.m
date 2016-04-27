@@ -80,20 +80,32 @@
 
 - (void)track:(SEGTrackPayload *)payload
 {
+    // Create a mutable version of the payload so we can delete revenue/value
+    NSMutableDictionary *mutablePayload = [NSMutableDictionary dictionaryWithDictionary:payload.properties];
+    
+    // If there is a revenue property in the payload, logRevenue
     NSNumber *revenue = [SEGTaplyticsIntegration extractRevenue:payload.properties withKey:@"revenue"];
     if (revenue) {
-        [self.taplyticsClass logRevenue: payload.event revenue: revenue metaData: payload.properties];
+        //Remove revenue from mutablePayload
+        [mutablePayload removeObjectForKey:@"revenue"];
+        
+        [self.taplyticsClass logRevenue: payload.event revenue: revenue metaData: mutablePayload];
         SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
         return;
     }
 
+    // If there is a value property in the payload, logEvent with value
     NSNumber *value = [SEGTaplyticsIntegration extractValue:payload.properties withKey:@"value"];
     if (value) {
-       [self.taplyticsClass logEvent: payload.event value: value metaData: payload.properties];
-       SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, payload.properties);
+        //Remove value from mutablePayload
+        [mutablePayload removeObjectForKey:@"value"];
+        
+        [self.taplyticsClass logEvent: payload.event value: value metaData: payload.properties];
+        SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, payload.properties);
         return;
     }
     
+    // Otherwise logEvent with nil value
     [self.taplyticsClass logEvent:payload.event value:nil metaData:payload.properties];
     SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value: nil metaData:%@]", payload.event, payload.properties);
 }
