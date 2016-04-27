@@ -39,19 +39,35 @@ describe(@"SEGTaplyticsIntegration", ^{
     });
     
     it(@"track with no props", ^{
-        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Foo" properties:@{} context:@{} integrations:@{}];
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Clicked" properties:@{} context:@{} integrations:@{}];
         
         [integration track:payload];
         
-        [verify(mockTaplytics) logEvent:@"Foo" value:nil metaData:@{}];
+        [verify(mockTaplytics) logEvent:@"Starship Clicked" value:nil metaData:@{}];
+    });
+    
+    it(@"track with props", ^{
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Ordered" properties:@{@"Starship Type": @"Death Star"} context:@{} integrations:@{}];
+        
+        [integration track:payload];
+        
+        [verify(mockTaplytics) logEvent:@"Starship Ordered" value:nil metaData:@{@"Starship Type": @"Death Star"}];
     });
     
     it(@"track with revenue", ^{
-        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Foo" properties:@{@"revenue": @200} context:@{} integrations:@{}];
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Bought" properties:@{@"revenue": @20000} context:@{} integrations:@{}];
         
         [integration track:payload];
         
-        [verify(mockTaplytics) logRevenue:@"Foo" revenue:@200 metaData:@{}];
+        [verify(mockTaplytics) logRevenue:@"Starship Bought" revenue:@20000 metaData:@{}];
+    });
+    
+    it(@"track with value", ^{
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Refueled" properties:@{@"value": @200, @"Fuel Type":@"Solar Cells"} context:@{} integrations:@{}];
+        
+        [integration track:payload];
+        
+        [verify(mockTaplytics) logEvent:@"Starship Refueled" value:@200 metaData:@{@"Fuel Type": @"Solar Cells"}];
     });
     
     it(@"reset", ^{

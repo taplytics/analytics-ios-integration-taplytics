@@ -90,7 +90,7 @@
         [mutablePayload removeObjectForKey:@"revenue"];
         
         [self.taplyticsClass logRevenue: payload.event revenue: revenue metaData: mutablePayload];
-        SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, payload.properties);
+        SEGLog(@"[[Taplytics sharedInstance] logRevenue:%@ revenue:%@ parameters:%@]", payload.event, revenue, mutablePayload);
         return;
     }
 
@@ -100,8 +100,8 @@
         //Remove value from mutablePayload
         [mutablePayload removeObjectForKey:@"value"];
         
-        [self.taplyticsClass logEvent: payload.event value: value metaData: payload.properties];
-        SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, payload.properties);
+        [self.taplyticsClass logEvent: payload.event value: value metaData: mutablePayload];
+        SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:%@ parameters:%@]", payload.event, value, mutablePayload);
         return;
     }
     
