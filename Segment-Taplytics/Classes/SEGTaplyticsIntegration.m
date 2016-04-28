@@ -17,6 +17,7 @@
         self.settings = settings;
         NSString *apiKey = [settings objectForKey:@"apiKey"];
         self.taplyticsClass = [Taplytics class];
+        [self.taplyticsClass startTaplyticsAPIKey:apiKey options:settings];
     }
     return self;
 }
