@@ -38,6 +38,32 @@ describe(@"SEGTaplyticsIntegration", ^{
         integration = [[SEGTaplyticsIntegration alloc] initWithSettings:@{} andTaplytics:mockTaplytics];
     });
     
+    it(@"identify with no Traits", ^{
+        SEGIdentifyPayload *payload = [[SEGIdentifyPayload alloc] initWithUserId:@"1111" anonymousId:nil traits:@{} context:@{} integrations:@{}];
+        
+        [integration identify:payload];
+        
+        [verify(mockTaplytics) setUserAttributes: @{@"user_id": @"1111"}];
+    });
+    
+    it(@"identify with Traits", ^{
+        SEGIdentifyPayload *payload = [[SEGIdentifyPayload alloc] initWithUserId:@"1111"
+                                                                    anonymousId:nil
+                                                                    traits:@{@"name":@"Kylo Ren",
+                                                                             @"gender": @"male",
+                                                                             @"emotion": @"angsty"}
+                                                                    context:@{} integrations:@{}];
+        
+        [integration identify:payload];
+        
+        [verify(mockTaplytics) setUserAttributes: @{@"user_id": @"1111",
+                                                    @"name": @"Kylo Ren",
+                                                    @"gender": @"male",
+                                                    @"customData":
+                                                        @{@"emotion":@"angsty"}
+                                                    }];
+    });
+    
     it(@"track with no props", ^{
         SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Clicked" properties:@{} context:@{} integrations:@{}];
         
@@ -63,11 +89,11 @@ describe(@"SEGTaplyticsIntegration", ^{
     });
     
     it(@"track with value", ^{
-        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Refueled" properties:@{@"value": @200, @"Fuel Type":@"Solar Cells"} context:@{} integrations:@{}];
+        SEGTrackPayload *payload = [[SEGTrackPayload alloc] initWithEvent:@"Starship Refueled" properties:@{@"value": @200.15, @"Fuel Type":@"Solar Cells"} context:@{} integrations:@{}];
         
         [integration track:payload];
         
-        [verify(mockTaplytics) logEvent:@"Starship Refueled" value:@200 metaData:@{@"Fuel Type": @"Solar Cells"}];
+        [verify(mockTaplytics) logEvent:@"Starship Refueled" value:@200.15 metaData:@{@"Fuel Type": @"Solar Cells"}];
     });
     
     it(@"reset", ^{

@@ -30,6 +30,46 @@
     return self;
 }
 
++ (NSDictionary *)map:(NSDictionary *)dictionary withAttributes:(NSArray *)attributes
+{
+    NSMutableDictionary *mapped = [NSMutableDictionary dictionaryWithDictionary:dictionary];
+    NSMutableDictionary *customData = [NSMutableDictionary dictionaryWithDictionary:@{}];
+    
+    [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *original, NSString *new, BOOL *stop) {
+        // If the attribute isn't in Taplytics properties, remove from traits and add it to customData
+        if (![attributes containsObject:original]) {
+            id data = mapped[original];
+            [mapped removeObjectForKey:original];
+            [customData setObject:data forKey:original];
+        }
+    }];
+    
+    // If there are custom Traits, add it to the traits object
+    if(customData.count) {
+        [mapped setObject:customData forKey:@"customData"];
+    }
+    
+    return [mapped copy];
+}
+
+
+
+- (void)identify:(SEGIdentifyPayload *)payload
+{
+    // The Taplytics Attributes, all other attributes are custom
+    NSArray *taplyticsAttributes = @[@"user_id", @"name", @"firstName", @"lastName", @"email", @"age", @"gender", @"avatarUrl"];
+    
+    NSMutableDictionary *mutablePayload = [NSMutableDictionary dictionaryWithDictionary:payload.traits];
+    [mutablePayload setValue:payload.userId forKey:@"user_id"];
+    
+    // Map Custom Traits into nested CustomData object
+    NSDictionary *mappedTraits = [SEGTaplyticsIntegration map:mutablePayload withAttributes:taplyticsAttributes];
+    [self.taplyticsClass setUserAttributes: mappedTraits];
+    SEGLog(@"[[Taplytics sharedInstance] setUserAttributes:%@]", mappedTraits);
+    
+    
+}
+
 + (NSNumber *)extractValue:(NSDictionary *)dictionary withKey:(NSString *)valueKey
 {
     id valueProperty = nil;
