@@ -17,7 +17,15 @@
         self.settings = settings;
         NSString *apiKey = [settings objectForKey:@"apiKey"];
         self.taplyticsClass = [Taplytics class];
+
+        NSMutableDictionary *options = 	[[NSMutableDictionary alloc] init];
+        [options setValue:[self delayLoad] forKey:@"delayLoad"];
+        [options setValue:[self shakeMenu] forKey:@"shakeMenu"];
+        [options setValue:[self pushSandbox] forKey:@"pushSandbox"];
+        [options setValue:[self taplyticsOptionSessionBackgroundTime] forKey:@"TaplyticsOptionSessionBackgroundTime"];
+        
         [self.taplyticsClass startTaplyticsAPIKey:apiKey options:settings];
+        SEGLog(@"[[Taplytics startTaplyticsAPIKey:%@ options:%@]]", apiKey, settings);
     }
     return self;
 }
@@ -37,7 +45,6 @@
     NSMutableDictionary *customData = [NSMutableDictionary dictionaryWithDictionary:@{}];
     
     [dictionary enumerateKeysAndObjectsUsingBlock:^(NSString *original, NSString *new, BOOL *stop) {
-        // If the attribute isn't in Taplytics properties, remove from traits and add it to customData
         if (![attributes containsObject:original]) {
             id data = mapped[original];
             [mapped removeObjectForKey:original];
@@ -45,7 +52,6 @@
         }
     }];
     
-    // If there are custom Traits, add it to the traits object
     if(customData.count) {
         [mapped setObject:customData forKey:@"customData"];
     }
@@ -57,13 +63,11 @@
 
 - (void)identify:(SEGIdentifyPayload *)payload
 {
-    // The Taplytics Attributes, all other attributes are custom
     NSArray *taplyticsAttributes = @[@"user_id", @"name", @"firstName", @"lastName", @"email", @"age", @"gender", @"avatarUrl"];
     
     NSMutableDictionary *mutablePayload = [NSMutableDictionary dictionaryWithDictionary:payload.traits];
     [mutablePayload setValue:payload.userId forKey:@"user_id"];
     
-    // Map Custom Traits into nested CustomData object
     NSDictionary *mappedTraits = [SEGTaplyticsIntegration map:mutablePayload withAttributes:taplyticsAttributes];
     [self.taplyticsClass setUserAttributes: mappedTraits];
     SEGLog(@"[[Taplytics sharedInstance] setUserAttributes:%@]", mappedTraits);
@@ -84,7 +88,6 @@
     
     if (valueProperty) {
         if ([valueProperty isKindOfClass:[NSString class]]) {
-            // Format the value.
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
             return [formatter numberFromString:valueProperty];
@@ -108,7 +111,6 @@
     
     if (revenueProperty) {
         if ([revenueProperty isKindOfClass:[NSString class]]) {
-            // Format the revenue.
             NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
             [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
             return [formatter numberFromString:revenueProperty];
@@ -121,13 +123,10 @@
 
 - (void)track:(SEGTrackPayload *)payload
 {
-    // Create a mutable version of the payload so we can delete revenue/value
     NSMutableDictionary *mutablePayload = [NSMutableDictionary dictionaryWithDictionary:payload.properties];
     
-    // If there is a revenue property in the payload, logRevenue
     NSNumber *revenue = [SEGTaplyticsIntegration extractRevenue:payload.properties withKey:@"revenue"];
     if (revenue) {
-        //Remove revenue from mutablePayload
         [mutablePayload removeObjectForKey:@"revenue"];
         
         [self.taplyticsClass logRevenue: payload.event revenue: revenue metaData: mutablePayload];
@@ -135,10 +134,8 @@
         return;
     }
 
-    // If there is a value property in the payload, logEvent with value
     NSNumber *value = [SEGTaplyticsIntegration extractValue:payload.properties withKey:@"value"];
     if (value) {
-        //Remove value from mutablePayload
         [mutablePayload removeObjectForKey:@"value"];
         
         [self.taplyticsClass logEvent: payload.event value: value metaData: mutablePayload];
@@ -146,15 +143,39 @@
         return;
     }
     
-    // Otherwise logEvent with nil value
     [self.taplyticsClass logEvent:payload.event value:nil metaData:payload.properties];
-    SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value: nil metaData:%@]", payload.event, payload.properties);
+    SEGLog(@"[[Taplytics sharedInstance] logEvent:%@ value:nil metaData:%@]", payload.event, payload.properties);
 }
 
 - (void)reset
 {
     SEGLog(@"Taplytics resetUser");
     [self.taplyticsClass resetUser:nil];
+}
+
+- (NSString *)apiKey
+{
+    return self.settings[@"apiKey"];
+}
+
+- (NSNumber *)delayLoad
+{
+    return (NSNumber *)[self.settings objectForKey:@"delayLoad"];
+}
+
+- (NSNumber *)taplyticsOptionSessionBackgroundTime
+{
+    return (NSNumber *)[self.settings objectForKey:@"sessionMinutes"];
+}
+
+- (NSNumber *)shakeMenu
+{
+    return (NSNumber *)[self.settings objectForKey:@"shakeMenu"];
+}
+
+- (NSNumber *)pushSandbox
+{
+    return (NSNumber *)[self.settings objectForKey:@"pushSandbox"];
 }
 
 @end
