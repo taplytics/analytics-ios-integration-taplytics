@@ -1,6 +1,6 @@
 # Segment-Taplytics
 
-[![CI Status](http://img.shields.io/travis/wcjohnson11/Segment-Taplytics.svg?style=flat)](https://travis-ci.org/wcjohnson11/Segment-Taplytics)
+[![CI Status](http://img.shields.io/travis/segment-integrations/analytics-ios-integration-taplytics.svg?style=flat)](https://travis-ci.org/segment-integrations/analytics-ios-integration-taplytics)
 [![Version](https://img.shields.io/cocoapods/v/Segment-Taplytics.svg?style=flat)](http://cocoapods.org/pods/Segment-Taplytics)
 [![License](https://img.shields.io/cocoapods/l/Segment-Taplytics.svg?style=flat)](http://cocoapods.org/pods/Segment-Taplytics)
 [![Platform](https://img.shields.io/cocoapods/p/Segment-Taplytics.svg?style=flat)](http://cocoapods.org/pods/Segment-Taplytics)
