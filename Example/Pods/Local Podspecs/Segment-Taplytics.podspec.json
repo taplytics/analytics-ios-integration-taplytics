@@ -22,7 +22,7 @@
   "source_files": "Segment-Taplytics/Classes/**/*",
   "dependencies": {
     "Analytics": [
-      "~> 3.0.7"
+      "~> 3.0"
     ],
     "Taplytics": [
       "~> 2.10.40"

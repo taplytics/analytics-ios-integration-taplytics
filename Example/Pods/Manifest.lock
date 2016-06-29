@@ -5,7 +5,7 @@ PODS:
   - OCMockito (3.0.1):
     - OCHamcrest (~> 5.1)
   - Segment-Taplytics (0.2.0):
-    - Analytics (~> 3.0.7)
+    - Analytics (~> 3.0)
     - Taplytics (~> 2.10.40)
   - Specta (1.0.5)
   - Taplytics (2.10.40)
@@ -25,7 +25,7 @@ SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   OCHamcrest: 218dc4022a5e928a275771da70c5dbea9f859287
   OCMockito: 9eee3c61e42f7cb8aa015d66f8cc16849701d973
-  Segment-Taplytics: 9010c546a19f2f4a6372802598ccc122cbb5d334
+  Segment-Taplytics: ed9afe8d7267737331bc3920b60fbefb568d56f0
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
   Taplytics: 30260abb01b494047b90163f9fadc5a328fb85f1
 
