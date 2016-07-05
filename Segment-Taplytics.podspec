@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = "Segment-Taplytics"
-s.version          = "0.2.0"
+s.version          = "0.2.1"
 s.summary          = "Taplytics Integration for Segment's analytics-ios library."
 
 s.description      = <<-DESC
@@ -21,6 +21,7 @@ s.requires_arc = true
 
 s.source_files = 'Segment-Taplytics/Classes/**/*'
 
-s.dependency 'Analytics', '~> 3.0.7'
+s.dependency 'Analytics', '~> 3.0'
 s.dependency 'Taplytics', '~> 2.10.42'
+
 end
