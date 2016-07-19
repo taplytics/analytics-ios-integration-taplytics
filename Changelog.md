@@ -1,6 +1,12 @@
 Change Log
 ==========
 
+Version 1.0.0 *(19th July, 2016)*
+-------------------------------------------
+*(Supports analytics-ios 3.0+ and Taplytics 2.10+)*
+
+ * Update Taplytics SDK.
+
 Version 0.2.1 *(29th June, 2016)*
 -------------------------------------------
 *(Supports analytics-ios 3.0.+ and Taplytics 2.10.40)*
