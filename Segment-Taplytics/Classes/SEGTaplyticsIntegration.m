@@ -22,7 +22,7 @@
         [options setValue:[self delayLoad] forKey:@"delayLoad"];
         [options setValue:[self shakeMenu] forKey:@"shakeMenu"];
         [options setValue:[self pushSandbox] forKey:@"pushSandbox"];
-        [options setValue:[self taplyticsOptionSessionBackgroundTime] forKey:@"TaplyticsOptionSessionBackgroundTime"];
+        [options setValue:[self taplyticsOptionSessionBackgroundTime] forKey:@"sessionBackgroundTime"];
         
         [self.taplyticsClass startTaplyticsAPIKey:apiKey options:settings];
         SEGLog(@"[[Taplytics startTaplyticsAPIKey:%@ options:%@]]", apiKey, settings);
