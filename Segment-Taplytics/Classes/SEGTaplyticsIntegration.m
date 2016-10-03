@@ -20,11 +20,16 @@
 
         NSMutableDictionary *options = 	[[NSMutableDictionary alloc] init];
         [options setValue:[self delayLoad] forKey:@"delayLoad"];
-        [options setValue:[self shakeMenu] forKey:@"shakeMenu"];
+        if([self shakeMenuV2].integerValue != 2){
+            [options setValue:[self shakeMenuV2] forKey:@"shakeMenu"];
+        }
+        if([self liveUpdateV2].integerValue != 2){
+            [options setValue:[self shakeMenuV2] forKey:@"liveUpdate"];
+        }
         [options setValue:[self pushSandbox] forKey:@"pushSandbox"];
         [options setValue:[self taplyticsOptionSessionBackgroundTime] forKey:@"TaplyticsOptionSessionBackgroundTime"];
         
-        [self.taplyticsClass startTaplyticsAPIKey:apiKey options:settings];
+        [self.taplyticsClass startTaplyticsAPIKey:apiKey options:options];
         SEGLog(@"[[Taplytics startTaplyticsAPIKey:%@ options:%@]]", apiKey, settings);
     }
     return self;
@@ -168,10 +173,16 @@
     return (NSNumber *)[self.settings objectForKey:@"sessionMinutes"];
 }
 
-- (NSNumber *)shakeMenu
+- (NSNumber *)liveUpdateV2
 {
-    return (NSNumber *)[self.settings objectForKey:@"shakeMenu"];
+    return (NSNumber *)[self.settings objectForKey:@"liveUpdate_v2"];
 }
+
+- (NSNumber *)shakeMenuV2
+{
+    return (NSNumber *)[self.settings objectForKey:@"shakeMenu_v2"];
+}
+
 
 - (NSNumber *)pushSandbox
 {
