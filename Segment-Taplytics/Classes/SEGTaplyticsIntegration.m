@@ -24,7 +24,7 @@
             [options setValue:[self shakeMenuV2] forKey:@"shakeMenu"];
         }
         if([self liveUpdateV2].integerValue != 2){
-            [options setValue:[self shakeMenuV2] forKey:@"liveUpdate"];
+            [options setValue:[self liveUpdateV2] forKey:@"liveUpdate"];
         }
         [options setValue:[self pushSandbox] forKey:@"pushSandbox"];
         [options setValue:[self taplyticsOptionSessionBackgroundTime] forKey:@"TaplyticsOptionSessionBackgroundTime"];
