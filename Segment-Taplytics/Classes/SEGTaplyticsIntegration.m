@@ -180,9 +180,9 @@
     return (NSNumber *)[self.settings objectForKey:@"sessionMinutes"];
 }
 
-- (NSString *)pushSandbox
+- (NSNumber *)pushSandbox
 {
-    return (NSString *)[self.settings objectForKey:@"pushSandbox"];
+    return (NSNumber *)[self.settings objectForKey:@"pushSandbox"];
 }
 
 @end
