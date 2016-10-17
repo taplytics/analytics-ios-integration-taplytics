@@ -20,14 +20,10 @@
 
         NSMutableDictionary *options = 	[[NSMutableDictionary alloc] init];
         [options setValue:[self delayLoad] forKey:@"delayLoad"];
-        if([self shakeMenuV2].integerValue != 2){
-            [options setValue:[self shakeMenuV2] forKey:@"shakeMenu"];
-        }
-        if([self liveUpdateV2].integerValue != 2){
-            [options setValue:[self liveUpdateV2] forKey:@"liveUpdate"];
-        }
         [options setValue:[self pushSandbox] forKey:@"pushSandbox"];
         [options setValue:[self taplyticsOptionSessionBackgroundTime] forKey:@"TaplyticsOptionSessionBackgroundTime"];
+        [self putDefaultBooleansWithSettings:settings withSettingsKey:@"liveUpdate_V2" andOptions:options withOptionsKey:@"liveUpdate"];
+        [self putDefaultBooleansWithSettings:settings withSettingsKey:@"shakeMenu_V2" andOptions:options withOptionsKey:@"shakeMenu"];
         
         [self.taplyticsClass startTaplyticsAPIKey:apiKey options:options];
         SEGLog(@"[[Taplytics startTaplyticsAPIKey:%@ options:%@]]", apiKey, settings);
@@ -42,6 +38,17 @@
         self.taplyticsClass = taplyticsClass;
     }
     return self;
+}
+
+- (void) putDefaultBooleansWithSettings:(NSDictionary *)settings withSettingsKey:(NSString *)settingsKey andOptions:(NSDictionary *)options withOptionsKey:(NSString *)optionKey {
+    NSString *val = [settings objectForKey:settingsKey];
+    if(!val)
+        return;
+    if([val isEqualToString:@"true"]){
+        [options setValue:@YES forKey:optionKey];
+    } else if([val isEqualToString:@"false"]){
+        [options setValue:@NO forKey:optionKey];
+    }
 }
 
 + (NSDictionary *)map:(NSDictionary *)dictionary withAttributes:(NSArray *)attributes
@@ -173,20 +180,9 @@
     return (NSNumber *)[self.settings objectForKey:@"sessionMinutes"];
 }
 
-- (NSNumber *)liveUpdateV2
+- (NSString *)pushSandbox
 {
-    return (NSNumber *)[self.settings objectForKey:@"liveUpdate_v2"];
-}
-
-- (NSNumber *)shakeMenuV2
-{
-    return (NSNumber *)[self.settings objectForKey:@"shakeMenu_v2"];
-}
-
-
-- (NSNumber *)pushSandbox
-{
-    return (NSNumber *)[self.settings objectForKey:@"pushSandbox"];
+    return (NSString *)[self.settings objectForKey:@"pushSandbox"];
 }
 
 @end
