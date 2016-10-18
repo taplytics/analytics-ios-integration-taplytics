@@ -26,7 +26,7 @@
         [self putDefaultBooleansWithSettings:settings withSettingsKey:@"shakeMenu_V2" andOptions:options withOptionsKey:@"shakeMenu"];
         
         [self.taplyticsClass startTaplyticsAPIKey:apiKey options:options];
-        SEGLog(@"[[Taplytics startTaplyticsAPIKey:%@ options:%@]]", apiKey, settings);
+        SEGLog(@"[[Taplytics startTaplyticsAPIKey:%@ options:%@]]", apiKey, options);
     }
     return self;
 }
