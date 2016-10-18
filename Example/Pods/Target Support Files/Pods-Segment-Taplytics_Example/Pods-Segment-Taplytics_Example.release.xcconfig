@@ -1,9 +1,10 @@
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO
 FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Taplytics"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Analytics" "${PODS_ROOT}/Headers/Public/Expecta" "${PODS_ROOT}/Headers/Public/OCHamcrest" "${PODS_ROOT}/Headers/Public/OCMockito" "${PODS_ROOT}/Headers/Public/Segment-Taplytics" "${PODS_ROOT}/Headers/Public/Specta" "${PODS_ROOT}/Headers/Public/Taplytics"
 LIBRARY_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/Analytics" "$PODS_CONFIGURATION_BUILD_DIR/Segment-Taplytics"
 OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Analytics" -isystem "${PODS_ROOT}/Headers/Public/Expecta" -isystem "${PODS_ROOT}/Headers/Public/OCHamcrest" -isystem "${PODS_ROOT}/Headers/Public/OCMockito" -isystem "${PODS_ROOT}/Headers/Public/Segment-Taplytics" -isystem "${PODS_ROOT}/Headers/Public/Specta" -isystem "${PODS_ROOT}/Headers/Public/Taplytics"
-OTHER_LDFLAGS = $(inherited) -ObjC -l"Analytics" -l"Segment-Taplytics" -framework "CoreTelephony" -framework "JavaScriptCore" -framework "SystemConfiguration" -framework "Taplytics"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"Analytics" -l"Segment-Taplytics" -framework "CoreTelephony" -framework "JavaScriptCore" -framework "Security" -framework "SystemConfiguration" -framework "Taplytics"
 PODS_BUILD_DIR = $BUILD_DIR
 PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods
